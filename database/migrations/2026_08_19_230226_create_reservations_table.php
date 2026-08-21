@@ -20,8 +20,8 @@ return new class extends Migration
             $table->time('durer_reservation');
             $table->integer('nombre_personne');
             $table->enum('status' , ['attente' , 'confrimer' , 'rejecter' , 'terminer'])->default('attente');
-            $table->foreignId('user_id')->references('id')->on('users');
-            $table->foreignId('salle_id')->references('id')->on('salles');
+            $table->foreignId('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->foreignId('salle_id')->references('id')->on('salles')->cascadeOnDelete();
             $table->timestamp('terminer_at')->nullable();
             $table->softDeletes();
             $table->timestamps();

@@ -9,8 +9,8 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class Image extends Model
 {
     use SoftDeletes;
-    
-    protected $fillable = ['nom'];
+
+    protected $fillable = ['nom' , 'path'];
 
     public function salles() : BelongsToMany {
         return $this->belongsToMany(Salle::class)->withPivot('modifier_designation');
